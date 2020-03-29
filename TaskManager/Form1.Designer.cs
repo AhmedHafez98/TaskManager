@@ -28,6 +28,7 @@ namespace TaskManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buEndTask = new System.Windows.Forms.Button();
             this.txPid = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@ namespace TaskManager
             this.Pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pcpu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,6 +96,7 @@ namespace TaskManager
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.Text = "Process Not Found";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Pname
@@ -128,6 +131,12 @@ namespace TaskManager
             this.label2.TabIndex = 6;
             this.label2.Text = "Process Priority";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -157,11 +166,12 @@ namespace TaskManager
         private System.Windows.Forms.Button buEndTask;
         private System.Windows.Forms.TextBox txPid;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pcpu;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
