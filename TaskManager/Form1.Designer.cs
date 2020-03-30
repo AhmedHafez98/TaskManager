@@ -30,13 +30,13 @@ namespace TaskManager
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Pname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pcpu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buEndTask = new System.Windows.Forms.Button();
             this.txPid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.Pname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pcpu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,6 +59,29 @@ namespace TaskManager
             this.dataGridView1.Size = new System.Drawing.Size(457, 298);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Pname
+            // 
+            this.Pname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Pname.HeaderText = "Process Name";
+            this.Pname.Name = "Pname";
+            this.Pname.ReadOnly = true;
+            // 
+            // Pid
+            // 
+            this.Pid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Pid.HeaderText = "Process ID";
+            this.Pid.Name = "Pid";
+            this.Pid.ReadOnly = true;
+            this.Pid.Width = 83;
+            // 
+            // Pcpu
+            // 
+            this.Pcpu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Pcpu.HeaderText = "CPU";
+            this.Pcpu.Name = "Pcpu";
+            this.Pcpu.ReadOnly = true;
+            this.Pcpu.Width = 52;
             // 
             // buEndTask
             // 
@@ -99,29 +122,6 @@ namespace TaskManager
             this.comboBox1.Text = "Process Not Found";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // Pname
-            // 
-            this.Pname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Pname.HeaderText = "Process Name";
-            this.Pname.Name = "Pname";
-            this.Pname.ReadOnly = true;
-            // 
-            // Pid
-            // 
-            this.Pid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Pid.HeaderText = "Process ID";
-            this.Pid.Name = "Pid";
-            this.Pid.ReadOnly = true;
-            this.Pid.Width = 83;
-            // 
-            // Pcpu
-            // 
-            this.Pcpu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Pcpu.HeaderText = "CPU";
-            this.Pcpu.Name = "Pcpu";
-            this.Pcpu.ReadOnly = true;
-            this.Pcpu.Width = 52;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -134,7 +134,7 @@ namespace TaskManager
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1

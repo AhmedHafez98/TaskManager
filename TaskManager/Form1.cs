@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using TaskManager;
 
 
 // This is the code for your desktop app.
@@ -163,10 +164,7 @@ namespace TaskManager
                 }
             }
         }
-
-        
-
-        
+ 
         private void txPid_TextChanged(object sender, EventArgs e)
         {
            
