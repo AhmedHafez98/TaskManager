@@ -28,10 +28,12 @@ namespace TaskManager
         }
         List<string> l;
         List<int> idxs;
+        List<CPU> pcp;
         private void Form1_Load(object sender, EventArgs e)
         {
             l = new List<string>();
             idxs = new List<int>();
+            pcp = new List<CPU>();
             for (var i = 0; i < 25; i++)
                 idxs.Add(-1);
             idxs[4] = 0;
@@ -85,19 +87,21 @@ namespace TaskManager
         {
             dataGridView1.Rows.Clear();
             var AllProcess = Process.GetProcesses();
-
+            pcp.Clear();
             foreach (var p in AllProcess)
             {
                 try
                 {
                     dataGridView1.Rows.Add(p.ProcessName, p.Id, "This");
+                    CPU CC = new CPU(p.Id);
+                    pcp.Add(CC);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-
             }
+            update();
         }
         void setpid(int prior)
         {
@@ -183,9 +187,28 @@ namespace TaskManager
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             processView();
+        }
+       
+
+        
+        void update()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                dataGridView1[2, i].Value = pcp[i].getUsage().ToString();
+
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // if (dataGridView1.RowCount != pcp.Count)
+            //   MessageBox.Show("error");
+            // MessageBox.Show("enjoy");
+            update();
+           
         }
     }
 }
