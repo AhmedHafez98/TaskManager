@@ -17,6 +17,7 @@ namespace TaskManager
         private  TimeSpan curTotalProcessorTime;
         public CPU(int PID)
         {
+
             p = Process.GetProcessById(PID);
             lastTime = DateTime.Now;
             try

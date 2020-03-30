@@ -86,19 +86,19 @@ namespace TaskManager
         void processView()
         {
             dataGridView1.Rows.Clear();
-            var AllProcess = Process.GetProcesses();
             pcp.Clear();
+            var AllProcess = Process.GetProcesses();
             foreach (var p in AllProcess)
             {
                 try
                 {
-                    dataGridView1.Rows.Add(p.ProcessName, p.Id, "This");
-                    CPU CC = new CPU(p.Id);
-                    pcp.Add(CC);
+                    dataGridView1.Rows.Add(p.ProcessName, p.Id, "This");    
+                        CPU CC = new CPU(p.Id);           
+                        pcp.Add(CC); 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    MessageBox.Show(ex.GetType().ToString());
                 }
             }
             update();
@@ -196,10 +196,17 @@ namespace TaskManager
         
         void update()
         {
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            //processView();
+            for (int i = 0; i < pcp.Count; i++)
             {
-                dataGridView1[2, i].Value = pcp[i].getUsage().ToString();
-
+                try
+                {
+                    dataGridView1[2, i].Value = pcp[i].getUsage().ToString();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.GetType().ToString());
+                }
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
